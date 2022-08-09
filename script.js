@@ -4,6 +4,11 @@ const requestURL = 'https://jsonplaceholder.typicode.com/users';
 const users = document.querySelector('.users');
 const info = document.querySelector('.info');
 
+const methods = {
+  GET: 'GET',
+  POST: 'POST',
+};
+
 const createResponseType = (method, url, type) => {
   xhr.open(method, url);
 
@@ -39,7 +44,7 @@ const sendRequest = (method, url) => {
   xhr.send();
 };
 
-sendRequest('GET', requestURL);
+sendRequest(methods.GET, requestURL);
 
 const infoData = [];
 
@@ -97,7 +102,7 @@ const onAddUserInfo = (event) => {
       infoData.push(user);
     }
 
-    postRequest('POST', requestURL, user);
+    postRequest(methods.POST, requestURL, user);
     renderInfoUser();
   }
 };
